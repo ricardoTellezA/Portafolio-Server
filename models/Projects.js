@@ -1,25 +1,13 @@
 const moongose = require("mongoose");
 const Schema = moongose.Schema;
 
-const UserSchema = Schema({
+const ProjectSchema = Schema({
   username: {
     type: String,
-    unique: true,
+    trim: true,
+    required: true,
   },
   name: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-
-  email: {
-    type: String,
-    trim: true,
-    required: true,
-    unique: true,
-  },
-
-  password: {
     type: String,
     trim: true,
     required: true,
@@ -28,35 +16,31 @@ const UserSchema = Schema({
   description: {
     type: String,
     trim: true,
+    required: true,
   },
-
-  skills: {
-    type: [String],
-    trim: true,
-    url: {
-      type: String,
-      
-    },
-
-
-  
-  },
-
-  
 
   image: {
     type: String,
     trim: true,
-  },
-  presentation: {
-    type: String,
-    trim: true,
+    required: true,
   },
 
-  profession: {
+  url: {
     type: String,
     trim: true,
+    required: true,
+  },
+
+  technologies: {
+    type: [String],
+    trim: true,
+    required: true,
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now(),
   },
 });
 
-module.exports = moongose.model("User", UserSchema);
+module.exports = moongose.model("Project", ProjectSchema);

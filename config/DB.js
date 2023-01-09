@@ -2,7 +2,7 @@ const moongose = require("mongoose");
 
 const conectarDB = async () => {
   try {
-    moongose.connect(
+    await moongose.connect(
       process.env.BBDD,
 
       {
